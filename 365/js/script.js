@@ -12,3 +12,10 @@ newrelic.setCustomAttribute('screenHeight', height);
 newrelic.setCustomAttribute('screenResolution', concatRes);
 }
 
+new PerformanceObserver((entryList) => {
+  for (const entry of entryList.getEntries()) {
+    console.log('LCP candidate:', entry.startTime, entry);
+    newrelic.setCustomAttribute('lcpEntry', entry);
+  }
+}).observe({type: 'largest-contentful-paint', buffered: true});
+

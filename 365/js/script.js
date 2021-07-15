@@ -10,6 +10,7 @@ if (typeof newrelic == 'object') {
 newrelic.setCustomAttribute('screenWidth', width);
 newrelic.setCustomAttribute('screenHeight', height);
 newrelic.setCustomAttribute('screenResolution', concatRes);
+newrelic.setCustomAttribute('referrer', document.referrer)
 }
 
 new PerformanceObserver((entryList) => {

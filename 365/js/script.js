@@ -16,7 +16,6 @@ new PerformanceObserver((entryList) => {
   for (const entry of entryList.getEntries()) {
     console.log('LCP candidate:', entry.startTime, entry);
     newrelic.setCustomAttribute('lcpEntry', entry.startTime);
-   // newrelic.setCustomAttribute('lcpElement', entry.element);
   }
 }).observe({type: 'largest-contentful-paint', buffered: true});
 
